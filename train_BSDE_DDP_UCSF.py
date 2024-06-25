@@ -21,12 +21,12 @@ from torchvision import transforms
 
 from network.FBSDEGen_USCF import FBSDEGen
 # from dataloader.dataloader import MultiModelMRI, ToTensor, load_multi_model_file
-from dataloader.infer_dataloader_UCSF import MultiModelMRI, ToTensor, load_multi_model_file
+from dataloader.infer_dataloader_UCSF_3_to_1_dwi import MultiModelMRI, ToTensor, load_multi_model_file
 
 from sklearn.model_selection import train_test_split
 from skimage.metrics import structural_similarity as ssim
 
-logdir = 'log/USCF_ASL_swin_256_0001'
+logdir = 'log/dwi'
 
 # Setting reproducibility
 def setup_seed(seed):
@@ -225,10 +225,9 @@ if __name__ == '__main__':
 
     folder_list = ['/home/Sdumt@us21101/data/UCSF-PDGM/T1WI',
                    '/home/Sdumt@us21101/data/UCSF-PDGM/DWI',
-                   '/home/Sdumt@us21101/data/UCSF-PDGM/T2WI',
+                   '/home/Sdumt@us21101/data/UCSF-PDGM/ADC',
                    '/home/Sdumt@us21101/data/UCSF-PDGM/T2FLAIR',
-                   '/home/Sdumt@us21101/data/UCSF-PDGM/SWI',
-                   '/home/Sdumt@us21101/data/UCSF-PDGM/ASL'
+                   '/home/Sdumt@us21101/data/UCSF-PDGM/tumor'
                    ]
 
     # 把模型加载到cuda上
